@@ -33,19 +33,19 @@
 "46P-cB-AYj.title" = "Tighten";
 
 /* Class = "NSButtonCell"; title = "check update"; ObjectID = "4Dh-kS-y64"; */
-"4Dh-kS-y64.title" = "確認する";
+"4Dh-kS-y64.title" = "アップデートを確認";
 
 /* Class = "NSMenuItem"; title = "Find"; ObjectID = "4EN-yA-p0u"; */
 "4EN-yA-p0u.title" = "Find";
 
 /* Class = "NSTableColumn"; headerCell.title = "input"; ObjectID = "4Lt-aZ-uP6"; */
-"4Lt-aZ-uP6.headerCell.title" = "input";
+"4Lt-aZ-uP6.headerCell.title" = "入力";
 
 /* Class = "NSMenuItem"; title = "Quit cmd-eikana"; ObjectID = "4sb-4s-VLi"; */
-"4sb-4s-VLi.title" = "Quit cmd-eikana";
+"4sb-4s-VLi.title" = "cmd-eikanaを終了";
 
 /* Class = "NSMenuItem"; title = "remove"; ObjectID = "502-f2-l6k"; */
-"502-f2-l6k.title" = "この項目を削除";
+"502-f2-l6k.title" = "削除";
 
 /* Class = "NSViewController"; title = "Exclusion Apps"; ObjectID = "5BL-ga-t3Q"; */
 "5BL-ga-t3Q.title" = "除外アプリ";
@@ -78,7 +78,7 @@
 "9ic-FL-obx.title" = "Substitutions";
 
 /* Class = "NSTableColumn"; headerCell.title = "Recently active Apps"; ObjectID = "9mf-tw-vRT"; */
-"9mf-tw-vRT.headerCell.title" = "Recently active Apps";
+"9mf-tw-vRT.headerCell.title" = "最近アクティブなアプリ";
 
 /* Class = "NSMenuItem"; title = "Smart Copy/Paste"; ObjectID = "9yt-4B-nSM"; */
 "9yt-4B-nSM.title" = "Smart Copy/Paste";
@@ -87,7 +87,7 @@
 "AYu-sK-qS6.title" = "Main Menu";
 
 /* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "BOF-NM-1cW"; */
-"BOF-NM-1cW.title" = "Preferences…";
+"BOF-NM-1cW.title" = "設定…";
 
 /* Class = "NSMenuItem"; title = "\tLeft to Right"; ObjectID = "BgM-ve-c93"; */
 "BgM-ve-c93.title" = "\tLeft to Right";
@@ -105,10 +105,10 @@
 "EUh-qz-H2g.title" = "最下部に移動";
 
 /* Class = "NSMenu"; title = "Help"; ObjectID = "F2S-fz-NVQ"; */
-"F2S-fz-NVQ.title" = "Help";
+"F2S-fz-NVQ.title" = "ヘルプ";
 
 /* Class = "NSMenuItem"; title = "cmd-eikana Help"; ObjectID = "FKE-Sm-Kum"; */
-"FKE-Sm-Kum.title" = "cmd-eikana Help";
+"FKE-Sm-Kum.title" = "cmd-eikanaヘルプ";
 
 /* Class = "NSMenuItem"; title = "Text"; ObjectID = "Fal-I4-PZk"; */
 "Fal-I4-PZk.title" = "Text";
@@ -330,10 +330,10 @@
 "dRJ-4n-Yzg.title" = "Undo";
 
 /* Class = "NSTableColumn"; headerCell.title = "output"; ObjectID = "enk-hD-eRH"; */
-"enk-hD-eRH.headerCell.title" = "output";
+"enk-hD-eRH.headerCell.title" = "出力";
 
 /* Class = "NSComboBoxCell"; title = "Eisuu"; ObjectID = "f2N-dm-xIa"; */
-"f2N-dm-xIa.title" = "Eisuu";
+"f2N-dm-xIa.title" = "英数";
 
 /* Class = "NSComboBoxCell"; f2N-dm-xIa.ibShadowedObjectValues[0] = "英数"; ObjectID = "f2N-dm-xIa"; */
 "f2N-dm-xIa.ibShadowedObjectValues[0]" = "英数";
@@ -351,7 +351,7 @@
 "f2N-dm-xIa.ibShadowedObjectValues[4]" = "入力メニューの次のソースを選択";
 
 /* Class = "NSComboBoxCell"; f2N-dm-xIa.ibShadowedObjectValues[5] = "Disable"; ObjectID = "f2N-dm-xIa"; */
-"f2N-dm-xIa.ibShadowedObjectValues[5]" = "Disable";
+"f2N-dm-xIa.ibShadowedObjectValues[5]" = "無効";
 
 /* Class = "NSMenuItem"; title = "move one down"; ObjectID = "fY1-dw-1o1"; */
 "fY1-dw-1o1.title" = "1つ下に移動";
@@ -366,7 +366,7 @@
 "hQb-2v-fYv.title" = "Smart Quotes";
 
 /* Class = "NSButtonCell"; title = "Quit cmd-eikana"; ObjectID = "heb-5j-piH"; */
-"heb-5j-piH.title" = "Quit cmd-eikana";
+"heb-5j-piH.title" = "cmd-eikanaを終了";
 
 /* Class = "NSMenuItem"; title = "Check Document Now"; ObjectID = "hz2-CU-CR7"; */
 "hz2-CU-CR7.title" = "Check Document Now";
@@ -405,7 +405,7 @@
 "pa3-QI-u2k.title" = "Delete";
 
 /* Class = "NSTableColumn"; headerCell.title = "Identifier"; ObjectID = "paP-xc-yLu"; */
-"paP-xc-yLu.headerCell.title" = "Identifier";
+"paP-xc-yLu.headerCell.title" = "識別子";
 
 /* Class = "NSMenuItem"; title = "Save…"; ObjectID = "pxx-59-PXV"; */
 "pxx-59-PXV.title" = "Save…";

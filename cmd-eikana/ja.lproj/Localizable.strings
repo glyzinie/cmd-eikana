@@ -1,0 +1,6 @@
+"update.check.failed.message" = "通信に失敗しました";
+"update.check.failed.informative" = "時間をおいて試してください";
+"update.check.latest.message" = "最新バージョンです";
+"update.available.message" = "cmd-eikana ver.%@ が利用可能です";
+"update.available.download" = "ダウンロード";
+"cancel" = "キャンセル";

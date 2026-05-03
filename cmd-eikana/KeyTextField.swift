@@ -29,13 +29,14 @@ class KeyTextField: NSComboBox {
     super.textDidEndEditing(obj)
 
     switch self.stringValue {
-    case "英数":
+    case "英数", "Eisuu":
       shortcut = KeyboardShortcut(keyCode: 102)
-    case "かな":
+    case "かな", "Kana":
       shortcut = KeyboardShortcut(keyCode: 104)
-    case "⇧かな":
+    case "⇧かな", "Shift-Kana":
       shortcut = KeyboardShortcut(keyCode: 104, flags: CGEventFlags.maskShift)
-    case "前の入力ソースを選択", "select the previous input source":
+    case "前の入力ソースを選択", "select the previous input source",
+      "Select the previous input source":
       if let symbolichotkeys = UserDefaults(suiteName: "com.apple.symbolichotkeys.plist")?.object(
         forKey: "AppleSymbolicHotKeys") as? NSDictionary,
         let parameters = symbolichotkeys.value(forKeyPath: "60.value.parameters") as? [Int],
@@ -44,7 +45,8 @@ class KeyTextField: NSComboBox {
         shortcut = KeyboardShortcut(
           keyCode: CGKeyCode(parameters[1]), flags: CGEventFlags(rawValue: UInt64(parameters[2])))
       }
-    case "入力メニューの次のソースを選択", "select next source in input menu":
+    case "入力メニューの次のソースを選択", "select next source in input menu",
+      "Select next source in input menu":
       if let symbolichotkeys = UserDefaults(suiteName: "com.apple.symbolichotkeys.plist")?.object(
         forKey: "AppleSymbolicHotKeys") as? NSDictionary,
         let parameters = symbolichotkeys.value(forKeyPath: "61.value.parameters") as? [Int],
@@ -53,7 +55,7 @@ class KeyTextField: NSComboBox {
         shortcut = KeyboardShortcut(
           keyCode: CGKeyCode(parameters[1]), flags: CGEventFlags(rawValue: UInt64(parameters[2])))
       }
-    case "Disable":
+    case "Disable", "無効":
       shortcut = KeyboardShortcut(keyCode: CGKeyCode(999))
     default:
       break

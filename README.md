@@ -57,6 +57,7 @@ xcodebuild -project "cmd-eikana.xcodeproj" -scheme "cmd-eikana" \
 
 - Original Author: [iMasanari](https://github.com/iMasanari)
 - Fork Maintainer: [dominion525](https://github.com/dominion525)
+- Fork Maintainer: [Wis (Glyzinie)](https://github.com/glyzinie)
 
 ## ライセンス
 

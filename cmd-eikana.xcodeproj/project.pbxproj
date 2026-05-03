@@ -14,6 +14,7 @@
 		620E0B4C1D9F2F8F0067F88B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 620E0B4A1D9F2F8F0067F88B /* MainMenu.xib */; };
 		620E0B511D9F31E30067F88B /* cmd-eikana-helper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 620E0B401D9F2F8F0067F88B /* cmd-eikana-helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		620E47771DB3C6E9004A2664 /* MappingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620E47761DB3C6E9004A2664 /* MappingMenu.swift */; };
+		620F5D661EA45B3300942FCC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 620F5D651EA45B3300942FCC /* Localizable.strings */; };
 		623E2E071DA60DA800AF163C /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623E2E061DA60DA800AF163C /* PreferenceWindowController.swift */; };
 		6242D4BC1DA2455D00CA80DD /* KeyboardShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6242D4BB1DA2455D00CA80DD /* KeyboardShortcut.swift */; };
 		6242D4BE1DA395AC00CA80DD /* KeyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6242D4BD1DA395AC00CA80DD /* KeyTextField.swift */; };
@@ -63,7 +64,10 @@
 		620E0B4B1D9F2F8F0067F88B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		620E0B4D1D9F2F8F0067F88B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		620E47761DB3C6E9004A2664 /* MappingMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappingMenu.swift; sourceTree = "<group>"; };
+		620F5D6A1EA45B3300942FCC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		620F5D6B1EA45B3300942FCC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		620F5D681EA45B3300942FCC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		620F5D691EA45B3300942FCC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		623E2E061DA60DA800AF163C /* PreferenceWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
 		6242D4BB1DA2455D00CA80DD /* KeyboardShortcut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardShortcut.swift; sourceTree = "<group>"; };
 		6242D4BD1DA395AC00CA80DD /* KeyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyTextField.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 				628908ED1DADB0B6008EF46A /* KeyMapping.swift */,
 				6294281E1D387503001BD4E9 /* Assets.xcassets */,
 				629428201D387503001BD4E9 /* Main.storyboard */,
+				620F5D651EA45B3300942FCC /* Localizable.strings */,
 				623E2E061DA60DA800AF163C /* PreferenceWindowController.swift */,
 				62BEA2A31DA739B6004409AE /* ShortcutsController.swift */,
 				62FE51601DC70C5B0037B8D1 /* ExclusionAppsController.swift */,
@@ -305,6 +310,7 @@
 			files = (
 				6294281F1D387503001BD4E9 /* Assets.xcassets in Resources */,
 				629428221D387503001BD4E9 /* Main.storyboard in Resources */,
+				620F5D661EA45B3300942FCC /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,9 +384,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				629428211D387503001BD4E9 /* Base */,
+				620F5D691EA45B3300942FCC /* en */,
 				620F5D681EA45B3300942FCC /* ja */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		620F5D651EA45B3300942FCC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				620F5D6A1EA45B3300942FCC /* en */,
+				620F5D6B1EA45B3300942FCC /* ja */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

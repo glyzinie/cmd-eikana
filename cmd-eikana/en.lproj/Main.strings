@@ -1,0 +1,83 @@
+/* Class = "NSViewController"; title = "Key Remap"; ObjectID = "14e-rg-kjk"; */
+"14e-rg-kjk.title" = "Key Remap";
+
+/* Class = "NSButtonCell"; title = "check update"; ObjectID = "4Dh-kS-y64"; */
+"4Dh-kS-y64.title" = "Check Update";
+
+/* Class = "NSTableColumn"; headerCell.title = "input"; ObjectID = "4Lt-aZ-uP6"; */
+"4Lt-aZ-uP6.headerCell.title" = "Input";
+
+/* Class = "NSMenuItem"; title = "remove"; ObjectID = "502-f2-l6k"; */
+"502-f2-l6k.title" = "Remove";
+
+/* Class = "NSViewController"; title = "Exclusion Apps"; ObjectID = "5BL-ga-t3Q"; */
+"5BL-ga-t3Q.title" = "Excluded Apps";
+
+/* Class = "NSMenuItem"; title = "move one up"; ObjectID = "5K6-xN-Jic"; */
+"5K6-xN-Jic.title" = "Move Up";
+
+/* Class = "NSButtonCell"; title = "check for update when start"; ObjectID = "6Pk-W2-evg"; */
+"6Pk-W2-evg.title" = "Check for updates on launch";
+
+/* Class = "NSTableColumn"; headerCell.title = "Recently active Apps"; ObjectID = "9mf-tw-vRT"; */
+"9mf-tw-vRT.headerCell.title" = "Recently Active Apps";
+
+/* Class = "NSMenuItem"; title = "move to bottom"; ObjectID = "EUh-qz-H2g"; */
+"EUh-qz-H2g.title" = "Move to Bottom";
+
+/* Class = "NSMenuItem"; title = "move to the top"; ObjectID = "SPl-n7-KTj"; */
+"SPl-n7-KTj.title" = "Move to Top";
+
+/* Class = "NSButtonCell"; title = "show icon on menu bar"; ObjectID = "Swa-9Q-bjA"; */
+"Swa-9Q-bjA.title" = "Show icon in menu bar";
+
+/* Class = "NSButtonCell"; title = "start with system login"; ObjectID = "UJa-91-PJq"; */
+"UJa-91-PJq.title" = "Start at login";
+
+/* Class = "NSTextFieldCell"; title = "remapping is disabled for checked applications"; ObjectID = "Y1I-k0-J1y"; */
+"Y1I-k0-J1y.title" = "Remapping is disabled for checked applications";
+
+/* Class = "NSTableColumn"; headerCell.title = "output"; ObjectID = "enk-hD-eRH"; */
+"enk-hD-eRH.headerCell.title" = "Output";
+
+/* Class = "NSComboBoxCell"; title = "Eisuu"; ObjectID = "f2N-dm-xIa"; */
+"f2N-dm-xIa.title" = "Eisuu";
+
+/* Class = "NSComboBoxCell"; f2N-dm-xIa.ibShadowedObjectValues[0] = "英数"; ObjectID = "f2N-dm-xIa"; */
+"f2N-dm-xIa.ibShadowedObjectValues[0]" = "Eisuu";
+
+/* Class = "NSComboBoxCell"; f2N-dm-xIa.ibShadowedObjectValues[1] = "かな"; ObjectID = "f2N-dm-xIa"; */
+"f2N-dm-xIa.ibShadowedObjectValues[1]" = "Kana";
+
+/* Class = "NSComboBoxCell"; f2N-dm-xIa.ibShadowedObjectValues[2] = "⇧かな"; ObjectID = "f2N-dm-xIa"; */
+"f2N-dm-xIa.ibShadowedObjectValues[2]" = "Shift-Kana";
+
+/* Class = "NSComboBoxCell"; f2N-dm-xIa.ibShadowedObjectValues[3] = "select the previous input source"; ObjectID = "f2N-dm-xIa"; */
+"f2N-dm-xIa.ibShadowedObjectValues[3]" = "Select the previous input source";
+
+/* Class = "NSComboBoxCell"; f2N-dm-xIa.ibShadowedObjectValues[4] = "select next source in input menu"; ObjectID = "f2N-dm-xIa"; */
+"f2N-dm-xIa.ibShadowedObjectValues[4]" = "Select next source in input menu";
+
+/* Class = "NSComboBoxCell"; f2N-dm-xIa.ibShadowedObjectValues[5] = "Disable"; ObjectID = "f2N-dm-xIa"; */
+"f2N-dm-xIa.ibShadowedObjectValues[5]" = "Disable";
+
+/* Class = "NSMenuItem"; title = "move one down"; ObjectID = "fY1-dw-1o1"; */
+"fY1-dw-1o1.title" = "Move Down";
+
+/* Class = "NSButtonCell"; title = "Quit cmd-eikana"; ObjectID = "heb-5j-piH"; */
+"heb-5j-piH.title" = "Quit cmd-eikana";
+
+/* Class = "NSTableColumn"; headerCell.title = "Identifier"; ObjectID = "paP-xc-yLu"; */
+"paP-xc-yLu.headerCell.title" = "Identifier";
+
+/* Class = "NSComboBoxCell"; qIB-xs-Dfg.ibShadowedObjectValues[0] = "英数"; ObjectID = "qIB-xs-Dfg"; */
+"qIB-xs-Dfg.ibShadowedObjectValues[0]" = "Eisuu";
+
+/* Class = "NSComboBoxCell"; qIB-xs-Dfg.ibShadowedObjectValues[1] = "かな"; ObjectID = "qIB-xs-Dfg"; */
+"qIB-xs-Dfg.ibShadowedObjectValues[1]" = "Kana";
+
+/* Class = "NSComboBoxCell"; qIB-xs-Dfg.ibShadowedObjectValues[2] = "⇧かな"; ObjectID = "qIB-xs-Dfg"; */
+"qIB-xs-Dfg.ibShadowedObjectValues[2]" = "Shift-Kana";
+
+/* Class = "NSViewController"; title = "Setting"; ObjectID = "uYA-LV-zsC"; */
+"uYA-LV-zsC.title" = "Settings";

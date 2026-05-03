@@ -113,10 +113,14 @@ func checkUpdate(_ callback: (@MainActor @Sendable (_ isNewVer: Bool?) -> Void)?
 @MainActor
 func showUpdateAlert(_ releaseInfo: ReleaseInfo) {
   let alert = NSAlert()
-  alert.messageText = "cmd-eikana ver.\(releaseInfo.version) が利用可能です"
+  alert.messageText = String(
+    format: NSLocalizedString(
+      "update.available.message", comment: "New version available alert title"),
+    releaseInfo.version)
   alert.informativeText = releaseInfo.description
-  alert.addButton(withTitle: "Download")
-  alert.addButton(withTitle: "Cancel")
+  alert.addButton(
+    withTitle: NSLocalizedString("update.available.download", comment: "Download button"))
+  alert.addButton(withTitle: NSLocalizedString("cancel", comment: "Cancel button"))
   let ret = alert.runModal()
 
   if ret == NSApplication.ModalResponse.alertFirstButtonReturn {

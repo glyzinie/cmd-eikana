@@ -60,14 +60,17 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
       if isNewVer == nil {
         let alert = NSAlert()
 
-        alert.messageText = "通信に失敗しました"
-        alert.informativeText = "時間をおいて試してください"
+        alert.messageText = NSLocalizedString(
+          "update.check.failed.message", comment: "Update check failure alert title")
+        alert.informativeText = NSLocalizedString(
+          "update.check.failed.informative", comment: "Update check failure alert body")
 
         alert.runModal()
       } else if isNewVer == false {
         let alert = NSAlert()
 
-        alert.messageText = "最新バージョンです"
+        alert.messageText = NSLocalizedString(
+          "update.check.latest.message", comment: "Already latest version alert title")
         let version =
           Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "unknown"
         alert.informativeText = "ver.\(version)"
