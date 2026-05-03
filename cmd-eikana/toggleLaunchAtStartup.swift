@@ -11,6 +11,9 @@
 import Cocoa
 import ServiceManagement
 
+@MainActor private let loginItemService = SMAppService.loginItem(
+  identifier: "io.github.glyzinie.cmd-eikana-helper")
+
 /// バージョンアップ時に自動起動設定を再登録すべきか判定する
 /// - Parameters:
 ///   - lastVersion: 前回起動時のバージョン（初回起動時はnil）
@@ -26,16 +29,26 @@ func shouldReregisterLaunchAtStartup(
   return launchAtStartupEnabled
 }
 
-func setLaunchAtStartup(_ enabled: Bool) {
-  let appBundleIdentifier = "io.github.dominion525.cmd-eikana-helper"
-
-  if SMLoginItemSetEnabled(appBundleIdentifier as CFString, enabled) {
+@MainActor func setLaunchAtStartup(_ enabled: Bool) {
+  do {
     if enabled {
-      print("Successfully add login item.")
+      guard loginItemService.status != .enabled && loginItemService.status != .requiresApproval
+      else {
+        print("Login item is already registered: \(loginItemService.status)")
+        return
+      }
+      try loginItemService.register()
+      print("Successfully registered login item.")
     } else {
-      print("Successfully remove login item.")
+      guard loginItemService.status == .enabled || loginItemService.status == .requiresApproval
+      else {
+        print("Login item is already unregistered.")
+        return
+      }
+      try loginItemService.unregister()
+      print("Successfully unregistered login item.")
     }
-  } else {
-    print("Failed to add login item.")
+  } catch {
+    print("Failed to update login item: \(error)")
   }
 }

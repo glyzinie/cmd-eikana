@@ -143,6 +143,18 @@ struct CheckUpdateTests {
     #expect(result == nil)
   }
 
+  // MARK: - Request Tests
+
+  @Test func latestReleaseRequestUsesCurrentGitHubHeaders() {
+    let request = makeLatestReleaseRequest()
+
+    #expect(
+      request.url?.absoluteString
+        == "https://api.github.com/repos/dominion525/cmd-eikana/releases/latest")
+    #expect(request.value(forHTTPHeaderField: "Accept") == "application/vnd.github+json")
+    #expect(request.value(forHTTPHeaderField: "X-GitHub-Api-Version") == "2026-03-10")
+  }
+
   // MARK: - Integration Tests (Real API)
 
   // CI環境ではネットワークアクセスが制限される可能性があるため、手動実行用とする
@@ -150,7 +162,8 @@ struct CheckUpdateTests {
   func fetchRealGitHubAPI() async throws {
     let url = URL(string: "https://api.github.com/repos/dominion525/cmd-eikana/releases/latest")!
     var request = URLRequest(url: url)
-    request.setValue("application/vnd.github.v3+json", forHTTPHeaderField: "Accept")
+    request.setValue("application/vnd.github+json", forHTTPHeaderField: "Accept")
+    request.setValue("2026-03-10", forHTTPHeaderField: "X-GitHub-Api-Version")
 
     let (data, response) = try await URLSession.shared.data(for: request)
 

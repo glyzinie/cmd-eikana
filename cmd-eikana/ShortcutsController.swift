@@ -8,30 +8,26 @@
 
 import Cocoa
 
-var shortcutList: [CGKeyCode: [KeyMapping]] = [:]
+@MainActor var shortcutList: [CGKeyCode: [KeyMapping]] = [:]
 
-var keyMappingList: [KeyMapping] = []
+@MainActor var keyMappingList: [KeyMapping] = []
 
+@MainActor
 func saveKeyMappings() {
   UserDefaults.standard.set(keyMappingList.map { $0.toDictionary() }, forKey: "mappings")
 }
 
+@MainActor
 func keyMappingListToShortcutList() {
-  shortcutList = [:]
+  shortcutList = Dictionary(grouping: keyMappingList.filter(\.enable)) { $0.input.keyCode }
 
-  for val in keyMappingList where val.enable {
-    let key = val.input.keyCode
-
-    if shortcutList[key] == nil {
-      shortcutList[key] = []
+  #if DEBUG
+    for (key, mappings) in shortcutList {
+      for val in mappings {
+        print("\(key): \(val.input.toString()) => \(val.output.toString())")
+      }
     }
-
-    shortcutList[key]?.append(val)
-
-    #if DEBUG
-      print("\(key): \(val.input.toString()) => \(val.output.toString())")
-    #endif
-  }
+  #endif
 }
 
 class ShortcutsController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {

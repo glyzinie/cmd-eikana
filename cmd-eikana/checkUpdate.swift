@@ -16,20 +16,30 @@ struct ReleaseInfo {
   let releaseUrl: String
 }
 
+private struct GitHubReleaseResponse: Decodable {
+  let tagName: String?
+  let name: String?
+  let htmlUrl: String?
+
+  enum CodingKeys: String, CodingKey {
+    case tagName = "tag_name"
+    case name
+    case htmlUrl = "html_url"
+  }
+}
+
 // MARK: - JSON Parsing
 
 func parseReleaseJSON(_ data: Data) -> ReleaseInfo? {
   do {
-    guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-    else {
+    let release = try JSONDecoder().decode(GitHubReleaseResponse.self, from: data)
+
+    guard let tagName = release.tagName else {
       return nil
     }
 
     // tag_name から "v" プレフィックスを除去してバージョン番号を取得
-    var version = ""
-    if let tagName = json["tag_name"] as? String {
-      version = tagName.hasPrefix("v") ? String(tagName.dropFirst()) : tagName
-    }
+    let version = tagName.hasPrefix("v") ? String(tagName.dropFirst()) : tagName
 
     // versionが空の場合はnil
     if version.isEmpty {
@@ -37,11 +47,11 @@ func parseReleaseJSON(_ data: Data) -> ReleaseInfo? {
     }
 
     // リリース名を説明として使用
-    let description = json["name"] as? String ?? ""
+    let description = release.name ?? ""
 
     // リリースページのURL
     let releaseUrl =
-      json["html_url"] as? String ?? "https://github.com/dominion525/cmd-eikana/releases"
+      release.htmlUrl ?? "https://github.com/dominion525/cmd-eikana/releases"
 
     return ReleaseInfo(version: version, description: description, releaseUrl: releaseUrl)
   } catch {
@@ -51,55 +61,67 @@ func parseReleaseJSON(_ data: Data) -> ReleaseInfo? {
 
 // MARK: - Check Update
 
-func checkUpdate(_ callback: ((_ isNewVer: Bool?) -> Void)? = nil) {
-  // GitHub Releases API
+func makeLatestReleaseRequest() -> URLRequest {
   let url = URL(string: "https://api.github.com/repos/dominion525/cmd-eikana/releases/latest")!
   var request = URLRequest(url: url)
-  request.setValue("application/vnd.github.v3+json", forHTTPHeaderField: "Accept")
+  request.setValue("application/vnd.github+json", forHTTPHeaderField: "Accept")
+  request.setValue("2026-03-10", forHTTPHeaderField: "X-GitHub-Api-Version")
+  return request
+}
 
-  let handler = { (data: Data?, _: URLResponse?, _: Error?) in
+func fetchLatestRelease() async throws -> ReleaseInfo {
+  let (data, response) = try await URLSession.shared.data(for: makeLatestReleaseRequest())
+
+  guard let httpResponse = response as? HTTPURLResponse,
+    (200..<300).contains(httpResponse.statusCode),
+    let releaseInfo = parseReleaseJSON(data)
+  else {
+    throw URLError(.badServerResponse)
+  }
+
+  return releaseInfo
+}
+
+func checkUpdate(_ callback: (@MainActor @Sendable (_ isNewVer: Bool?) -> Void)? = nil) {
+  Task {
     let currentVersion =
       Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0.0"
 
-    // JSONパース
-    guard let data = data, let releaseInfo = parseReleaseJSON(data) else {
-      DispatchQueue.main.async {
-        callback?(nil)
-      }
-      return
-    }
+    do {
+      let releaseInfo = try await fetchLatestRelease()
+      let isAbleUpdate = compareVersions(releaseInfo.version, currentVersion)
 
-    // バージョン比較
-    let isAbleUpdate: Bool? = compareVersions(releaseInfo.version, currentVersion)
-
-    if isAbleUpdate == true {
-      DispatchQueue.main.async {
-        let alert = NSAlert()
-        alert.messageText = "⌘英かな ver.\(releaseInfo.version) が利用可能です"
-        alert.informativeText = releaseInfo.description
-        alert.addButton(withTitle: "Download")
-        alert.addButton(withTitle: "Cancel")
-        let ret = alert.runModal()
-
-        if ret == NSApplication.ModalResponse.alertFirstButtonReturn {
-          if let url = URL(string: releaseInfo.releaseUrl) {
-            NSWorkspace.shared.open(url)
-          }
+      if isAbleUpdate {
+        await MainActor.run {
+          showUpdateAlert(releaseInfo)
         }
       }
-    }
 
-    if let callback = callback {
-      DispatchQueue.main.async {
-        callback(isAbleUpdate)
+      await MainActor.run {
+        callback?(isAbleUpdate)
+      }
+    } catch {
+      await MainActor.run {
+        callback?(nil)
       }
     }
   }
+}
 
-  let config = URLSessionConfiguration.default
-  let session = URLSession(configuration: config)
-  let task = session.dataTask(with: request, completionHandler: handler)
-  task.resume()
+@MainActor
+func showUpdateAlert(_ releaseInfo: ReleaseInfo) {
+  let alert = NSAlert()
+  alert.messageText = "⌘英かな ver.\(releaseInfo.version) が利用可能です"
+  alert.informativeText = releaseInfo.description
+  alert.addButton(withTitle: "Download")
+  alert.addButton(withTitle: "Cancel")
+  let ret = alert.runModal()
+
+  if ret == NSApplication.ModalResponse.alertFirstButtonReturn {
+    if let url = URL(string: releaseInfo.releaseUrl) {
+      NSWorkspace.shared.open(url)
+    }
+  }
 }
 
 // セマンティックバージョニングで比較 (new > current なら true)

@@ -8,7 +8,7 @@
 
 import Cocoa
 
-var activeKeyTextField: KeyTextField?
+@MainActor var activeKeyTextField: KeyTextField?
 
 class KeyTextField: NSComboBox {
   /// Custom delegate with other methods than NSTextFieldDelegate.

@@ -57,9 +57,7 @@ class KeyboardShortcut: NSObject {
   }
 
   func toString() -> String {
-    let key = keyCodeDictionary[keyCode]
-
-    if key == nil {
+    guard let key = keyCodeDictionary[keyCode] else {
       return ""
     }
 
@@ -89,7 +87,7 @@ class KeyboardShortcut: NSObject {
       flagString += "⌥"
     }
 
-    return flagString + key!
+    return flagString + key
   }
 
   func isCommandDown() -> Bool {

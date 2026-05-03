@@ -2,7 +2,7 @@
 
 ![Build](https://github.com/dominion525/cmd-eikana/actions/workflows/build.yml/badge.svg)
 ![License](https://img.shields.io/github/license/dominion525/cmd-eikana)
-![Platform](https://img.shields.io/badge/platform-macOS%2012.0%2B-blue)
+![Platform](https://img.shields.io/badge/platform-macOS%2026.0%2B-blue)
 
 This is a fork of [iMasanari/cmd-eikana](https://github.com/iMasanari/cmd-eikana) for Apple Silicon Macs.
 
@@ -14,9 +14,11 @@ This is a fork of [iMasanari/cmd-eikana](https://github.com/iMasanari/cmd-eikana
 このリポジトリは [iMasanari](https://github.com/iMasanari) 氏による [オリジナル版](https://github.com/iMasanari/cmd-eikana) のフォークです。
 
 ### オリジナル版との違い
-- Apple Silicon (arm64) 専用ビルド
-- 最小動作要件: macOS 12.0 (Monterey) 以降
-- Bundle ID: `io.github.dominion525.cmd-eikana`
+- Apple Silicon (arm64) ネイティブ専用ビルド
+- 最小動作要件: macOS 26.0 以降
+- Swift 6.0 / Xcode 26 系ツールチェーン
+- ログイン項目の登録に最新の ServiceManagement API (`SMAppService`) を使用
+- Bundle ID: `io.github.glyzinie.cmd-eikana`
 
 ## ダウンロード
 
@@ -49,18 +51,18 @@ This is a fork of [iMasanari/cmd-eikana](https://github.com/iMasanari/cmd-eikana
 ## アンインストール方法
 
 ⌘英かな.appをゴミ箱に入れてください。
-また、設定ファイルが`~/Library/Preferences/io.github.dominion525.cmd-eikana.plist`にあります。
+また、設定ファイルが`~/Library/Preferences/io.github.glyzinie.cmd-eikana.plist`にあります。
 綺麗さっぱり消したいという場合はこちらもゴミ箱に入れてください。
 
 ## 動作確認環境
 
-- macOS 15.7 Sequoia (Apple Silicon)
+- macOS 26 以降 (Apple Silicon)
 
 ## ビルド方法
 
 ```bash
 xcodebuild -project "⌘英かな.xcodeproj" -scheme "⌘英かな" \
-  -configuration Release -arch arm64 clean build
+  -configuration Release -destination 'platform=macOS,arch=arm64' clean build
 ```
 
 **注意:** ソースからビルドした場合は開発署名となるため、初回起動時にGatekeeperによってブロックされます。右クリック（またはControl+クリック）→「開く」で起動してください。

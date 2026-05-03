@@ -8,10 +8,12 @@
 
 import Cocoa
 
-var statusItem = NSStatusBar.system.statusItem(withLength: CGFloat(NSStatusItem.variableLength))
-var loginItem = NSMenuItem()
+@MainActor var statusItem = NSStatusBar.system.statusItem(
+  withLength: CGFloat(NSStatusItem.variableLength))
+@MainActor var loginItem = NSMenuItem()
 
 @main
+@MainActor
 class AppDelegate: NSObject, NSApplicationDelegate {
 
   var windowController: NSWindowController?
@@ -178,9 +180,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let url = URL(fileURLWithPath: Bundle.main.resourcePath!)
     let path = url.deletingLastPathComponent().deletingLastPathComponent().absoluteString
     let task = Process()
-    task.launchPath = "/usr/bin/open"
+    task.executableURL = URL(fileURLWithPath: "/usr/bin/open")
     task.arguments = [path]
-    task.launch()
+    do {
+      try task.run()
+    } catch {
+      print("failed to restart app: \(error)")
+    }
     NSApplication.shared.terminate(self)
   }
 

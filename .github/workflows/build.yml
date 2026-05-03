@@ -1,23 +1,72 @@
 name: Build
 
 on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Job to run'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - test
+          - build
+          - release-build
   push:
-    branches: [ master ]
+    branches: [ main ]
     paths-ignore:
       - 'docs/**'
       - '*.md'
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
     paths-ignore:
       - 'docs/**'
       - '*.md'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
 jobs:
-  build:
-    runs-on: macos-15
+  test:
+    if: github.event_name == 'pull_request' || github.event.inputs.target == 'all' || github.event.inputs.target == 'test'
+    runs-on: macos-26
+    timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
-      - run: xcode-select -p
-      - run: swift --version
-      - run: xcodebuild test -quiet -project "⌘英かな.xcodeproj" -scheme "⌘英かな" -destination 'platform=macOS' CODE_SIGN_IDENTITY="-" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
-      - run: xcodebuild -quiet -project "⌘英かな.xcodeproj" -scheme "⌘英かな" -configuration Release -arch arm64 build CODE_SIGN_IDENTITY="-" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+      - uses: actions/checkout@v6
+      - name: Print toolchain
+        run: |
+          xcode-select -p
+          swift --version
+      - name: Test
+        run: xcodebuild test -quiet -project "⌘英かな.xcodeproj" -scheme "⌘英かな" -destination 'platform=macOS,arch=arm64' CODE_SIGN_IDENTITY="-" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+
+  build:
+    if: github.event_name == 'pull_request' || github.event.inputs.target == 'all' || github.event.inputs.target == 'build'
+    runs-on: macos-26
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - name: Print toolchain
+        run: |
+          xcode-select -p
+          swift --version
+      - name: Build
+        run: xcodebuild -quiet -project "⌘英かな.xcodeproj" -scheme "⌘英かな" -destination 'platform=macOS,arch=arm64' build CODE_SIGN_IDENTITY="-" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+
+  release-build:
+    if: github.event_name == 'push' || github.event.inputs.target == 'all' || github.event.inputs.target == 'release-build'
+    runs-on: macos-26
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - name: Print toolchain
+        run: |
+          xcode-select -p
+          swift --version
+      - name: Build Release
+        run: xcodebuild -quiet -project "⌘英かな.xcodeproj" -scheme "⌘英かな" -configuration Release -destination 'platform=macOS,arch=arm64' build CODE_SIGN_IDENTITY="-" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
