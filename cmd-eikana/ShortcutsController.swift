@@ -1,6 +1,6 @@
 //
 //  ShortcutsController.swift
-//  ⌘英かな
+//  cmd-eikana
 //
 //  MIT License
 //  Copyright (c) 2016 iMasanari
@@ -30,6 +30,7 @@ func keyMappingListToShortcutList() {
   #endif
 }
 
+@objc(ShortcutsController)
 class ShortcutsController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
   @IBOutlet weak var tableView: NSTableView!
 

@@ -6,7 +6,7 @@
 import Foundation
 import Testing
 
-@testable import _英かな
+@testable import cmd_eikana
 
 struct CheckUpdateTests {
 
@@ -73,14 +73,14 @@ struct CheckUpdateTests {
     let data = createJSON(
       tagName: "v3.0.0",
       name: "Release 3.0.0",
-      htmlUrl: "https://github.com/dominion525/cmd-eikana/releases/tag/v3.0.0"
+      htmlUrl: "https://github.com/glyzinie/cmd-eikana/releases/tag/v3.0.0"
     )
     let result = parseReleaseJSON(data)
 
     #expect(result != nil)
     #expect(result?.version == "3.0.0")
     #expect(result?.description == "Release 3.0.0")
-    #expect(result?.releaseUrl == "https://github.com/dominion525/cmd-eikana/releases/tag/v3.0.0")
+    #expect(result?.releaseUrl == "https://github.com/glyzinie/cmd-eikana/releases/tag/v3.0.0")
   }
 
   @Test func parseJSONWithVPrefix() {
@@ -126,7 +126,7 @@ struct CheckUpdateTests {
     let result = parseReleaseJSON(data)
 
     #expect(result != nil)
-    #expect(result?.releaseUrl == "https://github.com/dominion525/cmd-eikana/releases")
+    #expect(result?.releaseUrl == "https://github.com/glyzinie/cmd-eikana/releases")
   }
 
   @Test func parseInvalidJSON() {
@@ -150,9 +150,11 @@ struct CheckUpdateTests {
 
     #expect(
       request.url?.absoluteString
-        == "https://api.github.com/repos/dominion525/cmd-eikana/releases/latest")
+        == "https://api.github.com/repos/glyzinie/cmd-eikana/releases/latest")
     #expect(request.value(forHTTPHeaderField: "Accept") == "application/vnd.github+json")
-    #expect(request.value(forHTTPHeaderField: "X-GitHub-Api-Version") == "2026-03-10")
+    #expect(request.value(forHTTPHeaderField: "X-GitHub-Api-Version") == "2022-11-28")
+    #expect(request.value(forHTTPHeaderField: "User-Agent") == "cmd-eikana")
+    #expect(request.timeoutInterval == 10)
   }
 
   // MARK: - Integration Tests (Real API)
@@ -160,10 +162,11 @@ struct CheckUpdateTests {
   // CI環境ではネットワークアクセスが制限される可能性があるため、手動実行用とする
   @Test(.disabled("CI環境ではネットワーク依存テストをスキップ"))
   func fetchRealGitHubAPI() async throws {
-    let url = URL(string: "https://api.github.com/repos/dominion525/cmd-eikana/releases/latest")!
+    let url = URL(string: "https://api.github.com/repos/glyzinie/cmd-eikana/releases/latest")!
     var request = URLRequest(url: url)
     request.setValue("application/vnd.github+json", forHTTPHeaderField: "Accept")
-    request.setValue("2026-03-10", forHTTPHeaderField: "X-GitHub-Api-Version")
+    request.setValue("2022-11-28", forHTTPHeaderField: "X-GitHub-Api-Version")
+    request.setValue("cmd-eikana", forHTTPHeaderField: "User-Agent")
 
     let (data, response) = try await URLSession.shared.data(for: request)
 

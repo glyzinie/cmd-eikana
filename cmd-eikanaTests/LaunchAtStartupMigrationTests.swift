@@ -7,7 +7,7 @@
 
 import Testing
 
-@testable import _英かな
+@testable import cmd_eikana
 
 struct LaunchAtStartupMigrationTests {
 

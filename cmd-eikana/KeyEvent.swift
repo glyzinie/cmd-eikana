@@ -1,14 +1,14 @@
 //
 //  KeyEvent.swift
-//  ⌘英かな
+//  cmd-eikana
 //
 //  MIT License
 //  Copyright (c) 2016 iMasanari
 //
 
+@preconcurrency import ApplicationServices
 @preconcurrency import Cocoa
 @preconcurrency import CoreGraphics
-@preconcurrency import ApplicationServices
 
 @MainActor var activeAppsList: [AppData] = []
 @MainActor var exclusionAppsList: [AppData] = []
@@ -20,6 +20,10 @@ class KeyEvent: NSObject {
   var keyCode: CGKeyCode?
   var isExclusionApp = false
   let bundleId = Bundle.main.infoDictionary?["CFBundleIdentifier"] as! String
+  private var eventTap: CFMachPort?
+  private var runLoopSource: CFRunLoopSource?
+  private var globalMouseMonitor: Any?
+  private var localMouseMonitor: Any?
 
   override init() {
     super.init()
@@ -71,7 +75,12 @@ class KeyEvent: NSObject {
   }
 
   @objc func setActiveApp(_ notification: NSNotification) {
-    let app = notification.userInfo!["NSWorkspaceApplicationKey"] as! NSRunningApplication
+    guard
+      let app = notification.userInfo?[NSWorkspace.applicationUserInfoKey]
+        as? NSRunningApplication
+    else {
+      return
+    }
 
     if let name = app.localizedName, let id = app.bundleIdentifier {
       isExclusionApp = exclusionAppsDict[id] != nil
@@ -88,6 +97,8 @@ class KeyEvent: NSObject {
   }
 
   func watch() {
+    guard eventTap == nil else { return }
+
     // マウスのドラッグバグ回避のため、NSEventとCGEventを併用
     // CGEventのみでやる方法を捜索中
     let nsEventMaskList: NSEvent.EventTypeMask = [
@@ -100,11 +111,12 @@ class KeyEvent: NSObject {
       .scrollWheel,
     ]
 
-    NSEvent.addGlobalMonitorForEvents(matching: nsEventMaskList) { _ in
+    globalMouseMonitor = NSEvent.addGlobalMonitorForEvents(matching: nsEventMaskList) { _ in
       self.keyCode = nil
     }
 
-    NSEvent.addLocalMonitorForEvents(matching: nsEventMaskList) { (event: NSEvent) -> NSEvent? in
+    localMouseMonitor = NSEvent.addLocalMonitorForEvents(matching: nsEventMaskList) {
+      (event: NSEvent) -> NSEvent? in
       self.keyCode = nil
       return event
     }
@@ -128,7 +140,7 @@ class KeyEvent: NSObject {
       eventMask |= (1 << mask)
     }
 
-    let observer = UnsafeMutableRawPointer(Unmanaged.passRetained(self).toOpaque())
+    let observer = UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque())
 
     guard
       let eventTap = CGEvent.tapCreate(
@@ -156,7 +168,8 @@ class KeyEvent: NSObject {
       exit(1)
     }
 
-    let runLoopSource = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, eventTap, 0)
+    self.eventTap = eventTap
+    runLoopSource = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, eventTap, 0)
 
     CFRunLoopAddSource(CFRunLoopGetMain(), runLoopSource, .commonModes)
     CGEvent.tapEnable(tap: eventTap, enable: true)
@@ -165,6 +178,13 @@ class KeyEvent: NSObject {
   func eventCallback(proxy: CGEventTapProxy, type: CGEventType, event: CGEvent) -> Unmanaged<
     CGEvent
   >? {
+    if type == .tapDisabledByTimeout || type == .tapDisabledByUserInput {
+      if let eventTap {
+        CGEvent.tapEnable(tap: eventTap, enable: true)
+      }
+      return Unmanaged.passUnretained(event)
+    }
+
     if isExclusionApp {
       return Unmanaged.passUnretained(event)
     }

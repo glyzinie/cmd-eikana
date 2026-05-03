@@ -1,0 +1,28 @@
+name: Test
+
+on:
+  workflow_dispatch:
+  push:
+    paths-ignore:
+      - 'docs/**'
+      - '*.md'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: macos-26
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - name: Print toolchain
+        run: |
+          xcode-select -p
+          swift --version
+      - name: Test
+        run: xcodebuild test -quiet -project "cmd-eikana.xcodeproj" -scheme "cmd-eikana" -destination 'platform=macOS,arch=arm64' CODE_SIGN_IDENTITY="-" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO

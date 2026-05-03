@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  ⌘英かな
+//  cmd-eikana
 //
 //  MIT License
 //  Copyright (c) 2016 iMasanari
@@ -8,6 +8,7 @@
 
 import Cocoa
 
+@objc(ViewController)
 class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
   let userDefaults = UserDefaults.standard
 

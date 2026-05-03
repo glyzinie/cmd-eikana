@@ -1,7 +1,8 @@
-# ⌘英かな (cmd-eikana) - Apple Silicon Fork
+cmd-eikana
+===
 
-![Build](https://github.com/dominion525/cmd-eikana/actions/workflows/build.yml/badge.svg)
-![License](https://img.shields.io/github/license/dominion525/cmd-eikana)
+![Build](https://github.com/glyzinie/cmd-eikana/actions/workflows/build.yml/badge.svg)
+![License](https://img.shields.io/github/license/glyzinie/cmd-eikana)
 ![Platform](https://img.shields.io/badge/platform-macOS%2026.0%2B-blue)
 
 This is a fork of [iMasanari/cmd-eikana](https://github.com/iMasanari/cmd-eikana) for Apple Silicon Macs.
@@ -11,7 +12,7 @@ This is a fork of [iMasanari/cmd-eikana](https://github.com/iMasanari/cmd-eikana
 
 ## Fork版について
 
-このリポジトリは [iMasanari](https://github.com/iMasanari) 氏による [オリジナル版](https://github.com/iMasanari/cmd-eikana) のフォークです。
+このリポジトリは [iMasanari](https://github.com/iMasanari) 氏による [オリジナル版](https://github.com/iMasanari/cmd-eikana) のフォークにさらに変更を加えたものです。
 
 ### オリジナル版との違い
 - Apple Silicon (arm64) ネイティブ専用ビルド
@@ -20,28 +21,13 @@ This is a fork of [iMasanari/cmd-eikana](https://github.com/iMasanari/cmd-eikana
 - ログイン項目の登録に最新の ServiceManagement API (`SMAppService`) を使用
 - Bundle ID: `io.github.glyzinie.cmd-eikana`
 
-## ダウンロード
-
-[GitHub Releases](https://github.com/dominion525/cmd-eikana/releases) からダウンロードしてください。
-
-## 使い方（初回起動時）
-
-### 1. アプリを開く
-
-[Releases](https://github.com/dominion525/cmd-eikana/releases) からダウンロードしたアプリは署名・公証済みのため、ダブルクリックで開けます。
-
-### 2. アクセシビリティの許可
-
-アクセシビリティ機能へのアクセスの確認ダイアログが表示されるので「"システム設定"を開く」をクリックします。
-プライバシーとセキュリティ > アクセシビリティ で⌘英かな.appにチェックを入れてください。
-
 ## オリジナル版からの移行
 
 オリジナル版（iMasanari/cmd-eikana）から移行する場合、Bundle IDが異なるためアクセシビリティの設定が競合することがあります。
 
-1. オリジナル版の⌘英かなを終了
+1. オリジナル版のcmd-eikanaを終了
 2. システム設定 →「プライバシーとセキュリティ」→「アクセシビリティ」を開く
-3. 古い⌘英かなのエントリを削除（-ボタン）
+3. 古いcmd-eikanaのエントリを削除（-ボタン）
 4. 本フォーク版を起動し、新しくアクセシビリティを許可
 
 ## 終了方法
@@ -50,7 +36,7 @@ This is a fork of [iMasanari/cmd-eikana](https://github.com/iMasanari/cmd-eikana
 
 ## アンインストール方法
 
-⌘英かな.appをゴミ箱に入れてください。
+cmd-eikana.appをゴミ箱に入れてください。
 また、設定ファイルが`~/Library/Preferences/io.github.glyzinie.cmd-eikana.plist`にあります。
 綺麗さっぱり消したいという場合はこちらもゴミ箱に入れてください。
 
@@ -61,7 +47,7 @@ This is a fork of [iMasanari/cmd-eikana](https://github.com/iMasanari/cmd-eikana
 ## ビルド方法
 
 ```bash
-xcodebuild -project "⌘英かな.xcodeproj" -scheme "⌘英かな" \
+xcodebuild -project "cmd-eikana.xcodeproj" -scheme "cmd-eikana" \
   -configuration Release -destination 'platform=macOS,arch=arm64' clean build
 ```
 
@@ -74,4 +60,8 @@ xcodebuild -project "⌘英かな.xcodeproj" -scheme "⌘英かな" \
 
 ## ライセンス
 
-MIT License - Copyright (c) 2016 iMasanari
+MIT License
+
+- Copyright (c) 2016 iMasanari
+- Copyright (c) 2025 Dominion525
+- Copyright (c) 2026 Wis

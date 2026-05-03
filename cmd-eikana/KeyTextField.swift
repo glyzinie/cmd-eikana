@@ -1,6 +1,6 @@
 //
 //  KeyTextField.swift
-//  ⌘英かな
+//  cmd-eikana
 //
 //  MIT License
 //  Copyright (c) 2016 iMasanari
@@ -10,6 +10,7 @@ import Cocoa
 
 @MainActor var activeKeyTextField: KeyTextField?
 
+@objc(KeyTextField)
 class KeyTextField: NSComboBox {
   /// Custom delegate with other methods than NSTextFieldDelegate.
   var shortcut: KeyboardShortcut?

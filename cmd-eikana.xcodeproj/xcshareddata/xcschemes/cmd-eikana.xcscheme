@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "629428161D387503001BD4E9"
-               BuildableName = "&#x2318;&#x82f1;&#x304b;&#x306a;.app"
-               BlueprintName = "&#x2318;&#x82f1;&#x304b;&#x306a;"
-               ReferencedContainer = "container:&#x2318;&#x82f1;&#x304b;&#x306a;.xcodeproj">
+               BuildableName = "cmd-eikana.app"
+               BlueprintName = "cmd-eikana"
+               ReferencedContainer = "container:cmd-eikana.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,7 +36,7 @@
                BlueprintIdentifier = "7472654A2EE2DEB600EA7BAD"
                BuildableName = "cmd-eikanaTests.xctest"
                BlueprintName = "cmd-eikanaTests"
-               ReferencedContainer = "container:&#x2318;&#x82f1;&#x304b;&#x306a;.xcodeproj">
+               ReferencedContainer = "container:cmd-eikana.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "629428161D387503001BD4E9"
-            BuildableName = "&#x2318;&#x82f1;&#x304b;&#x306a;.app"
-            BlueprintName = "&#x2318;&#x82f1;&#x304b;&#x306a;"
-            ReferencedContainer = "container:&#x2318;&#x82f1;&#x304b;&#x306a;.xcodeproj">
+            BuildableName = "cmd-eikana.app"
+            BlueprintName = "cmd-eikana"
+            ReferencedContainer = "container:cmd-eikana.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -73,9 +73,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "629428161D387503001BD4E9"
-            BuildableName = "&#x2318;&#x82f1;&#x304b;&#x306a;.app"
-            BlueprintName = "&#x2318;&#x82f1;&#x304b;&#x306a;"
-            ReferencedContainer = "container:&#x2318;&#x82f1;&#x304b;&#x306a;.xcodeproj">
+            BuildableName = "cmd-eikana.app"
+            BlueprintName = "cmd-eikana"
+            ReferencedContainer = "container:cmd-eikana.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

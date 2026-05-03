@@ -1,6 +1,6 @@
 //
 //  PreferenceWindowController.swift
-//  ⌘英かな
+//  cmd-eikana
 //
 //  MIT License
 //  Copyright (c) 2016 iMasanari
@@ -8,13 +8,14 @@
 
 import Cocoa
 
+@objc(PreferenceWindowController)
 class PreferenceWindowController: NSWindowController, NSWindowDelegate {
   static func getInstance() -> PreferenceWindowController {
     let storyboard = NSStoryboard(name: "Main", bundle: nil)
     let controller =
       storyboard.instantiateController(withIdentifier: "Preference") as! PreferenceWindowController
 
-    controller.window?.title = "⌘英かな"
+    controller.window?.title = "cmd-eikana"
 
     return controller
   }

@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  ⌘英かな
+//  cmd-eikana
 //
 //  MIT License
 //  Copyright (c) 2016 iMasanari
@@ -14,6 +14,7 @@ import Cocoa
 
 @main
 @MainActor
+@objc(AppDelegate)
 class AppDelegate: NSObject, NSApplicationDelegate {
 
   var windowController: NSWindowController?
@@ -123,7 +124,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "unknown"
 
     menu.addItem(
-      withTitle: "About ⌘英かな \(version)", action: #selector(AppDelegate.open(_:)), keyEquivalent: ""
+      withTitle: "About cmd-eikana \(version)", action: #selector(AppDelegate.open(_:)), keyEquivalent: ""
     )
     menu.addItem(
       withTitle: "Preferences...", action: #selector(AppDelegate.openPreferencesSerector(_:)),
@@ -156,7 +157,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   }
 
   @IBAction func open(_ sender: NSButton) {
-    if let checkURL = URL(string: "https://eikana.dominion525.com/") {
+    if let checkURL = URL(string: "https://glyzinie.github.io/cmd-eikana/") {
       if NSWorkspace.shared.open(checkURL) {
         print("url successfully opened")
       }

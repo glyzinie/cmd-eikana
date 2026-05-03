@@ -1,11 +1,11 @@
 ---
 layout: default
-title: ⌘英かな - Apple Silicon版
+title: cmd-eikana - Apple Silicon版
 ---
 
 <div style="display: flex; align-items: center; gap: 16px;">
-  <img src="icon.png" width="64" height="64" alt="⌘英かな">
-  <h1 style="margin: 0;">⌘英かな - Apple Silicon版</h1>
+  <img src="icon.png" width="64" height="64" alt="cmd-eikana">
+  <h1 style="margin: 0;">cmd-eikana - Apple Silicon版</h1>
 </div>
 
 macOSで左右のコマンドキーを単体で押したときに英数/かなを切り替えるユーティリティです。USキーボードでもJISキーボードの「英数」「かな」キーと同様の操作感を実現できます。
@@ -17,12 +17,12 @@ macOSで左右のコマンドキーを単体で押したときに英数/かな�
 ## ダウンロード
 
 <div style="text-align: center; margin: 2em 0;">
-  <a href="https://github.com/dominion525/cmd-eikana/releases/latest" style="display: inline-flex; align-items: center; background: #4a90d9; color: white; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-size: 1.1em;">
-    Download ⌘英かな-v2.3.1
+  <a href="https://github.com/glyzinie/cmd-eikana/releases/latest" style="display: inline-flex; align-items: center; background: #4a90d9; color: white; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-size: 1.1em;">
+    Download cmd-eikana-v2.3.1
     <span style="background: #666; color: white; padding: 4px 10px; border-radius: 4px; margin-left: 12px; font-size: 0.85em;">macOS 26.0+ / Apple Silicon</span>
   </a>
   <div style="margin-top: 1em;">
-    <a href="https://github.com/dominion525/cmd-eikana">View project on GitHub</a>
+    <a href="https://github.com/glyzinie/cmd-eikana">View project on GitHub</a>
   </div>
 </div>
 
@@ -46,7 +46,7 @@ macOSで左右のコマンドキーを単体で押したときに英数/かな�
 
 ### 1. アプリを開く
 
-⌘英かな.appをダブルクリックすると、以下のダイアログが表示されます。
+cmd-eikana.appをダブルクリックすると、以下のダイアログが表示されます。
 
 ![ブロックダイアログ](setup-00-blocked.png){: width="50%"}
 
@@ -54,7 +54,7 @@ macOSで左右のコマンドキーを単体で押したときに英数/かな�
 
 ### 2. システム設定から許可する
 
-システム設定を開き、「**プライバシーとセキュリティ**」を選択します。下にスクロールすると、「"⌘英かな"がブロックされました」というメッセージが表示されています。「**このまま開く**」ボタンをクリックしてください。
+システム設定を開き、「**プライバシーとセキュリティ**」を選択します。下にスクロールすると、「"cmd-eikana"がブロックされました」というメッセージが表示されています。「**このまま開く**」ボタンをクリックしてください。
 
 <div style="display: flex; gap: 16px; margin: 1em 0;">
   <img src="setup-01-privacy-security.png" alt="プライバシーとセキュリティ" style="width: 50%;">
@@ -63,7 +63,7 @@ macOSで左右のコマンドキーを単体で押したときに英数/かな�
 
 ### 3. 確認ダイアログ
 
-「⌘英かなを開きますか？」というダイアログが表示されます。「**このまま開く**」をクリックしてください。
+「cmd-eikanaを開きますか？」というダイアログが表示されます。「**このまま開く**」をクリックしてください。
 
 ![開きますか？ダイアログ](setup-03-open-dialog.png){: width="50%"}
 
@@ -75,7 +75,7 @@ Touch IDまたはパスワードで認証を求められます。認証してく
 
 ### 5. アクセシビリティの許可
 
-アプリが起動すると、アクセシビリティの許可を求められます。システム設定の「プライバシーとセキュリティ」→「アクセシビリティ」で⌘英かなを許可してください。
+アプリが起動すると、アクセシビリティの許可を求められます。システム設定の「プライバシーとセキュリティ」→「アクセシビリティ」でcmd-eikanaを許可してください。
 
 ---
 
@@ -83,9 +83,9 @@ Touch IDまたはパスワードで認証を求められます。認証してく
 
 オリジナル版（iMasanari/cmd-eikana）から移行する場合、Bundle IDが異なるためアクセシビリティの設定が競合することがあります。
 
-1. オリジナル版の⌘英かなを終了
+1. オリジナル版のcmd-eikanaを終了
 2. システム設定 →「プライバシーとセキュリティ」→「アクセシビリティ」を開く
-3. 古い⌘英かなのエントリを削除（-ボタン）
+3. 古いcmd-eikanaのエントリを削除（-ボタン）
 4. 本フォーク版を起動し、新しくアクセシビリティを許可
 
 ---
@@ -96,7 +96,7 @@ Touch IDまたはパスワードで認証を求められます。認証してく
 
 ## アンインストール
 
-⌘英かな.appをゴミ箱に入れてください。設定ファイル `~/Library/Preferences/io.github.glyzinie.cmd-eikana.plist` も削除すると完全にアンインストールできます。
+cmd-eikana.appをゴミ箱に入れてください。設定ファイル `~/Library/Preferences/io.github.glyzinie.cmd-eikana.plist` も削除すると完全にアンインストールできます。
 
 ---
 

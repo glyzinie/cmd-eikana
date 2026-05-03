@@ -12,11 +12,11 @@
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="⌘英かな" id="1Xt-HY-uBw">
+                            <menuItem title="cmd-eikana" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="⌘英かな" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="cmd-eikana" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About ⌘英かな" id="5kV-Vb-QxS">
+                                        <menuItem title="About cmd-eikana" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
@@ -30,7 +30,7 @@
                                             <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                                        <menuItem title="Hide ⌘英かな" keyEquivalent="h" id="Olw-nP-bQN">
+                                        <menuItem title="Hide cmd-eikana" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -48,7 +48,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                                        <menuItem title="Quit ⌘英かな" keyEquivalent="q" id="4sb-4s-VLi">
+                                        <menuItem title="Quit cmd-eikana" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
                                             </connections>
@@ -629,7 +629,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="⌘英かな Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                                        <menuItem title="cmd-eikana Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
                                             </connections>
@@ -643,7 +643,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="_英かな" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
@@ -651,7 +651,7 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController storyboardIdentifier="Preference" id="B8D-0N-5wS" customClass="PreferenceWindowController" customModule="_英かな" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="Preference" id="B8D-0N-5wS" customClass="PreferenceWindowController" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -669,10 +669,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--⌘英かな-->
+        <!--cmd-eikana-->
         <scene sceneID="GQH-Fe-u4t">
             <objects>
-                <tabViewController title="⌘英かな" storyboardIdentifier="Shortcuts" selectedTabViewItemIndex="0" id="xjl-OD-0Sx" sceneMemberID="viewController">
+                <tabViewController title="cmd-eikana" storyboardIdentifier="Shortcuts" selectedTabViewItemIndex="0" id="xjl-OD-0Sx" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem identifier="" id="Y8j-NZ-0cv"/>
                         <tabViewItem id="9Ve-hc-1Mr"/>
@@ -700,7 +700,7 @@
         <!--Key Remap-->
         <scene sceneID="zoN-we-4m7">
             <objects>
-                <viewController title="Key Remap" id="14e-rg-kjk" customClass="ShortcutsController" customModule="_英かな" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Key Remap" id="14e-rg-kjk" customClass="ShortcutsController" sceneMemberID="viewController">
                     <view key="view" id="qrE-lf-lrS">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -774,7 +774,7 @@
                                                             <rect key="frame" x="29" y="1" width="150" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <comboBox verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D4F-zN-XKq" customClass="KeyTextField" customModule="_英かな" customModuleProvider="target">
+                                                                <comboBox verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D4F-zN-XKq" customClass="KeyTextField">
                                                                     <rect key="frame" x="3" y="-5" width="147" height="26"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Command_R" buttonBordered="NO" completes="NO" numberOfVisibleItems="5" id="qIB-xs-Dfg">
@@ -808,7 +808,7 @@
                                                             <rect key="frame" x="182" y="1" width="150" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <comboBox verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eU8-3g-mgj" customClass="KeyTextField" customModule="_英かな" customModuleProvider="target">
+                                                                <comboBox verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eU8-3g-mgj" customClass="KeyTextField">
                                                                     <rect key="frame" x="3" y="-5" width="147" height="26"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="Eisuu" buttonBordered="NO" completes="NO" numberOfVisibleItems="6" id="f2N-dm-xIa">
@@ -845,7 +845,7 @@
                                                             <rect key="frame" x="335" y="1" width="71" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <popUpButton identifier="hage" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dzf-C4-fIi" customClass="MappingMenu" customModule="_英かな" customModuleProvider="target">
+                                                                <popUpButton identifier="hage" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dzf-C4-fIi" customClass="MappingMenu">
                                                                     <rect key="frame" x="2" y="-2" width="71" height="21"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <popUpButtonCell key="cell" type="bevel" title="…" bezelStyle="regularSquare" imagePosition="left" alignment="center" lineBreakMode="truncatingTail" state="on" identifier="test" inset="2" arrowPosition="noArrow" pullsDown="YES" id="H2F-I4-Cda">
@@ -900,7 +900,7 @@
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="njp-cJ-inK">
                                 <rect key="frame" x="14" y="11" width="123" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Quit ⌘英かな" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="heb-5j-piH">
+                                <buttonCell key="cell" type="push" title="Quit cmd-eikana" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="heb-5j-piH">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="13" name="LucidaGrande"/>
                                 </buttonCell>
@@ -921,7 +921,7 @@
         <!--Exclusion Apps-->
         <scene sceneID="LvT-Vt-OhG">
             <objects>
-                <viewController title="Exclusion Apps" id="5BL-ga-t3Q" customClass="ExclusionAppsController" customModule="_英かな" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Exclusion Apps" id="5BL-ga-t3Q" customClass="ExclusionAppsController" sceneMemberID="viewController">
                     <view key="view" id="4p9-Mr-Acm">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1019,7 +1019,7 @@
         <!--Setting-->
         <scene sceneID="KoO-De-Y0S">
             <objects>
-                <viewController title="Setting" id="uYA-LV-zsC" customClass="ViewController" customModule="_英かな" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Setting" id="uYA-LV-zsC" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" id="DC7-4p-YOW">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>

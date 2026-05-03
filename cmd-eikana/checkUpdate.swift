@@ -1,6 +1,6 @@
 //
 //  checkUpdate.swift
-//  ⌘英かな
+//  cmd-eikana
 //
 //  MIT License
 //  Copyright (c) 2016 iMasanari
@@ -51,7 +51,7 @@ func parseReleaseJSON(_ data: Data) -> ReleaseInfo? {
 
     // リリースページのURL
     let releaseUrl =
-      release.htmlUrl ?? "https://github.com/dominion525/cmd-eikana/releases"
+      release.htmlUrl ?? "https://github.com/glyzinie/cmd-eikana/releases"
 
     return ReleaseInfo(version: version, description: description, releaseUrl: releaseUrl)
   } catch {
@@ -62,10 +62,12 @@ func parseReleaseJSON(_ data: Data) -> ReleaseInfo? {
 // MARK: - Check Update
 
 func makeLatestReleaseRequest() -> URLRequest {
-  let url = URL(string: "https://api.github.com/repos/dominion525/cmd-eikana/releases/latest")!
+  let url = URL(string: "https://api.github.com/repos/glyzinie/cmd-eikana/releases/latest")!
   var request = URLRequest(url: url)
+  request.timeoutInterval = 10
   request.setValue("application/vnd.github+json", forHTTPHeaderField: "Accept")
-  request.setValue("2026-03-10", forHTTPHeaderField: "X-GitHub-Api-Version")
+  request.setValue("2022-11-28", forHTTPHeaderField: "X-GitHub-Api-Version")
+  request.setValue("cmd-eikana", forHTTPHeaderField: "User-Agent")
   return request
 }
 
@@ -111,7 +113,7 @@ func checkUpdate(_ callback: (@MainActor @Sendable (_ isNewVer: Bool?) -> Void)?
 @MainActor
 func showUpdateAlert(_ releaseInfo: ReleaseInfo) {
   let alert = NSAlert()
-  alert.messageText = "⌘英かな ver.\(releaseInfo.version) が利用可能です"
+  alert.messageText = "cmd-eikana ver.\(releaseInfo.version) が利用可能です"
   alert.informativeText = releaseInfo.description
   alert.addButton(withTitle: "Download")
   alert.addButton(withTitle: "Cancel")

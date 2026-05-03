@@ -6,7 +6,7 @@
 import Foundation
 import Testing
 
-@testable import _英かな
+@testable import cmd_eikana
 
 struct AppDataTests {
 
@@ -88,9 +88,9 @@ struct AppDataTests {
   }
 
   @Test func initWithUnicodeCharacters() {
-    let appData = AppData(name: "⌘英かな", id: "com.example.テスト")
+    let appData = AppData(name: "cmd-eikana", id: "com.example.テスト")
 
-    #expect(appData.name == "⌘英かな")
+    #expect(appData.name == "cmd-eikana")
     #expect(appData.id == "com.example.テスト")
   }
 

@@ -7,7 +7,7 @@ import CoreGraphics
 import Foundation
 import Testing
 
-@testable import _英かな
+@testable import cmd_eikana
 
 struct KeyboardShortcutFlagTests {
 

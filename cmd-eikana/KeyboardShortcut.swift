@@ -1,6 +1,6 @@
 //
 //  KeyboardShortcut.swift
-//  ⌘英かな
+//  cmd-eikana
 //
 //  MIT License
 //  Copyright (c) 2016 iMasanari

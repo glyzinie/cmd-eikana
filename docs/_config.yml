@@ -1,4 +1,4 @@
-title: "⌘英かな - Apple Silicon版"
+title: "cmd-eikana - Apple Silicon版"
 description: 左右のコマンドキーで英数/かなを切り替えるmacOS用ユーティリティ
 url: "https://eikana.dominion525.com"
 theme: minima
@@ -12,4 +12,4 @@ defaults:
     values:
       image:
         path: /ogp.png
-        alt: "⌘英かな - Apple Silicon版"
+        alt: "cmd-eikana - Apple Silicon版"

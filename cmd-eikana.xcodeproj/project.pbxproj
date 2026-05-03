@@ -36,7 +36,7 @@
 			containerPortal = 6294280F1D387503001BD4E9 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 629428161D387503001BD4E9;
-			remoteInfo = "⌘英かな";
+			remoteInfo = "cmd-eikana";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -70,7 +70,7 @@
 		624BF4C91DD182F500A70E2C /* MediaKeyEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaKeyEvent.swift; sourceTree = "<group>"; };
 		627265F51D3CC84000703F85 /* KeyEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyEvent.swift; sourceTree = "<group>"; };
 		628908ED1DADB0B6008EF46A /* KeyMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyMapping.swift; sourceTree = "<group>"; };
-		629428171D387503001BD4E9 /* ⌘英かな.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "⌘英かな.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		629428171D387503001BD4E9 /* cmd-eikana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cmd-eikana.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6294281A1D387503001BD4E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6294281C1D387503001BD4E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6294281E1D387503001BD4E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		6294280E1D387503001BD4E9 = {
 			isa = PBXGroup;
 			children = (
-				629428191D387503001BD4E9 /* ⌘英かな */,
+				629428191D387503001BD4E9 /* cmd-eikana */,
 				620E0B411D9F2F8F0067F88B /* cmd-eikana-helper */,
 				7472654C2EE2DEB600EA7BAD /* cmd-eikanaTests */,
 				629428181D387503001BD4E9 /* Products */,
@@ -146,14 +146,14 @@
 		629428181D387503001BD4E9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				629428171D387503001BD4E9 /* ⌘英かな.app */,
+				629428171D387503001BD4E9 /* cmd-eikana.app */,
 				620E0B401D9F2F8F0067F88B /* cmd-eikana-helper.app */,
 				7472654B2EE2DEB600EA7BAD /* cmd-eikanaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		629428191D387503001BD4E9 /* ⌘英かな */ = {
+		629428191D387503001BD4E9 /* cmd-eikana */ = {
 			isa = PBXGroup;
 			children = (
 				6294281A1D387503001BD4E9 /* AppDelegate.swift */,
@@ -174,7 +174,7 @@
 				6242D4BD1DA395AC00CA80DD /* KeyTextField.swift */,
 				629428231D387503001BD4E9 /* Info.plist */,
 			);
-			name = "⌘英かな";
+			name = "cmd-eikana";
 			path = "cmd-eikana";
 			sourceTree = "<group>";
 		};
@@ -198,9 +198,9 @@
 			productReference = 620E0B401D9F2F8F0067F88B /* cmd-eikana-helper.app */;
 			productType = "com.apple.product-type.application";
 		};
-		629428161D387503001BD4E9 /* ⌘英かな */ = {
+		629428161D387503001BD4E9 /* cmd-eikana */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 629428311D387503001BD4E9 /* Build configuration list for PBXNativeTarget "⌘英かな" */;
+			buildConfigurationList = 629428311D387503001BD4E9 /* Build configuration list for PBXNativeTarget "cmd-eikana" */;
 			buildPhases = (
 				629428131D387503001BD4E9 /* Sources */,
 				629428141D387503001BD4E9 /* Frameworks */,
@@ -211,9 +211,9 @@
 			);
 			dependencies = (
 			);
-			name = "⌘英かな";
+			name = "cmd-eikana";
 			productName = StatusBarApp;
-			productReference = 629428171D387503001BD4E9 /* ⌘英かな.app */;
+			productReference = 629428171D387503001BD4E9 /* cmd-eikana.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7472654A2EE2DEB600EA7BAD /* cmd-eikanaTests */ = {
@@ -268,7 +268,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 629428121D387503001BD4E9 /* Build configuration list for PBXProject "⌘英かな" */;
+			buildConfigurationList = 629428121D387503001BD4E9 /* Build configuration list for PBXProject "cmd-eikana" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -282,7 +282,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				629428161D387503001BD4E9 /* ⌘英かな */,
+				629428161D387503001BD4E9 /* cmd-eikana */,
 				620E0B3F1D9F2F8F0067F88B /* cmd-eikana-helper */,
 				7472654A2EE2DEB600EA7BAD /* cmd-eikanaTests */,
 			);
@@ -360,7 +360,7 @@
 /* Begin PBXTargetDependency section */
 		747265502EE2DEB600EA7BAD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 629428161D387503001BD4E9 /* ⌘英かな */;
+			target = 629428161D387503001BD4E9 /* cmd-eikana */;
 			targetProxy = 7472654F2EE2DEB600EA7BAD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -560,7 +560,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.glyzinie.cmd-eikana";
-				PRODUCT_NAME = "⌘英かな";
+				PRODUCT_NAME = "cmd-eikana";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 6.0;
 			};
@@ -582,7 +582,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.glyzinie.cmd-eikana";
-				PRODUCT_NAME = "⌘英かな";
+				PRODUCT_NAME = "cmd-eikana";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 6.0;
 			};
@@ -616,7 +616,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 6.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/⌘英かな.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/⌘英かな";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cmd-eikana.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/cmd-eikana";
 			};
 			name = Debug;
 		};
@@ -646,7 +646,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 6.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/⌘英かな.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/⌘英かな";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cmd-eikana.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/cmd-eikana";
 			};
 			name = Release;
 		};
@@ -662,7 +662,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		629428121D387503001BD4E9 /* Build configuration list for PBXProject "⌘英かな" */ = {
+		629428121D387503001BD4E9 /* Build configuration list for PBXProject "cmd-eikana" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6294282F1D387503001BD4E9 /* Debug */,
@@ -671,7 +671,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		629428311D387503001BD4E9 /* Build configuration list for PBXNativeTarget "⌘英かな" */ = {
+		629428311D387503001BD4E9 /* Build configuration list for PBXNativeTarget "cmd-eikana" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				629428321D387503001BD4E9 /* Debug */,
