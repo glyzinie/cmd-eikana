@@ -1,6 +1,6 @@
 title: "cmd-eikana - Apple Silicon版"
 description: 左右のコマンドキーで英数/かなを切り替えるmacOS用ユーティリティ
-url: "https://eikana.dominion525.com"
+url: "https://glyzinie.github.io/cmd-eikana/"
 theme: minima
 header_pages: []
 plugins:
@@ -11,5 +11,5 @@ defaults:
       path: ""
     values:
       image:
-        path: /ogp.png
+        path: /img/ogp.png
         alt: "cmd-eikana - Apple Silicon版"

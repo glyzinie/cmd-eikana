@@ -21,6 +21,15 @@ This is a fork of [iMasanari/cmd-eikana](https://github.com/iMasanari/cmd-eikana
 - ログイン項目の登録に最新の ServiceManagement API (`SMAppService`) を使用
 - Bundle ID: `io.github.glyzinie.cmd-eikana`
 
+### 差分の確認
+
+GitHubのcompare URLでは、`...` の左側が基準、右側が比較対象です。
+fork間で比較する場合は、比較対象を `OWNER:REPO:BRANCH` の形式で指定できます。
+
+- [オリジナル版との差分](https://github.com/iMasanari/cmd-eikana/compare/master...glyzinie:cmd-eikana:main)
+- [dominion525版との差分](https://github.com/dominion525/cmd-eikana/compare/master...glyzinie:cmd-eikana:main)
+- [オリジナル版とdominion525版の差分](https://github.com/iMasanari/cmd-eikana/compare/master...dominion525:cmd-eikana:master)
+
 ## オリジナル版からの移行
 
 オリジナル版（iMasanari/cmd-eikana）から移行する場合、Bundle IDが異なるためアクセシビリティの設定が競合することがあります。

@@ -4,6 +4,8 @@
 //
 //  MIT License
 //  Copyright (c) 2016 iMasanari
+//  Copyright (c) 2025 Dominion525
+//  Copyright (c) 2026 Wis
 //
 
 import Cocoa

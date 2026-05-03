@@ -4,7 +4,7 @@ title: cmd-eikana - Apple Silicon版
 ---
 
 <div style="display: flex; align-items: center; gap: 16px;">
-  <img src="icon.png" width="64" height="64" alt="cmd-eikana">
+  <img src="img/icon.png" width="64" height="64" alt="cmd-eikana">
   <h1 style="margin: 0;">cmd-eikana - Apple Silicon版</h1>
 </div>
 
@@ -14,11 +14,19 @@ macOSで左右のコマンドキーを単体で押したときに英数/かな�
 
 ---
 
+## 差分の確認
+
+- [オリジナル版との差分](https://github.com/iMasanari/cmd-eikana/compare/master...glyzinie:cmd-eikana:main)
+- [dominion525版との差分](https://github.com/dominion525/cmd-eikana/compare/master...glyzinie:cmd-eikana:main)
+- [オリジナル版とdominion525版の差分](https://github.com/iMasanari/cmd-eikana/compare/master...dominion525:cmd-eikana:master)
+
+---
+
 ## ダウンロード
 
 <div style="text-align: center; margin: 2em 0;">
   <a href="https://github.com/glyzinie/cmd-eikana/releases/latest" style="display: inline-flex; align-items: center; background: #4a90d9; color: white; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-size: 1.1em;">
-    Download cmd-eikana-v2.3.1
+    Download cmd-eikana-v0.0.1
     <span style="background: #666; color: white; padding: 4px 10px; border-radius: 4px; margin-left: 12px; font-size: 0.85em;">macOS 26.0+ / Apple Silicon</span>
   </a>
   <div style="margin-top: 1em;">
@@ -48,7 +56,7 @@ macOSで左右のコマンドキーを単体で押したときに英数/かな�
 
 cmd-eikana.appをダブルクリックすると、以下のダイアログが表示されます。
 
-![ブロックダイアログ](setup-00-blocked.png){: width="50%"}
+![ブロックダイアログ](img/setup-00-blocked.png){: width="50%"}
 
 ここでは「**完了**」をクリックしてください。
 
@@ -57,21 +65,21 @@ cmd-eikana.appをダブルクリックすると、以下のダイアログが表
 システム設定を開き、「**プライバシーとセキュリティ**」を選択します。下にスクロールすると、「"cmd-eikana"がブロックされました」というメッセージが表示されています。「**このまま開く**」ボタンをクリックしてください。
 
 <div style="display: flex; gap: 16px; margin: 1em 0;">
-  <img src="setup-01-privacy-security.png" alt="プライバシーとセキュリティ" style="width: 50%;">
-  <img src="setup-02-allow-app.png" alt="このまま開く" style="width: 50%;">
+  <img src="img/setup-01-privacy-security.png" alt="プライバシーとセキュリティ" style="width: 50%;">
+  <img src="img/setup-02-allow-app.png" alt="このまま開く" style="width: 50%;">
 </div>
 
 ### 3. 確認ダイアログ
 
 「cmd-eikanaを開きますか？」というダイアログが表示されます。「**このまま開く**」をクリックしてください。
 
-![開きますか？ダイアログ](setup-03-open-dialog.png){: width="50%"}
+![開きますか？ダイアログ](img/setup-03-open-dialog.png){: width="50%"}
 
 ### 4. 認証
 
 Touch IDまたはパスワードで認証を求められます。認証してください。
 
-![認証ダイアログ](setup-04-auth.png){: width="50%"}
+![認証ダイアログ](img/setup-04-auth.png){: width="50%"}
 
 ### 5. アクセシビリティの許可
 
@@ -104,7 +112,13 @@ cmd-eikana.appをゴミ箱に入れてください。設定ファイル `~/Libra
 
 - オリジナル版: [iMasanari/cmd-eikana](https://github.com/iMasanari/cmd-eikana)
 - オリジナル公式サイト: [https://ei-kana.appspot.com/](https://ei-kana.appspot.com/)
+- Fork Maintainer: [dominion525](https://github.com/dominion525)
+- Fork Maintainer: [Wis (Glyzinie)](https://github.com/glyzinie)
 
 ## ライセンス
 
 MIT License
+
+- Copyright (c) 2016 iMasanari
+- Copyright (c) 2025 Dominion525
+- Copyright (c) 2026 Wis
