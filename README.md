@@ -1,6 +1,7 @@
 cmd-eikana
 ===
 
+![Test](https://github.com/glyzinie/cmd-eikana/actions/workflows/test.yml/badge.svg)
 ![Build](https://github.com/glyzinie/cmd-eikana/actions/workflows/build.yml/badge.svg)
 ![License](https://img.shields.io/github/license/glyzinie/cmd-eikana)
 ![Platform](https://img.shields.io/badge/platform-macOS%2026.0%2B-blue)
@@ -19,7 +20,7 @@ This is a fork of [iMasanari/cmd-eikana](https://github.com/iMasanari/cmd-eikana
 - 最小動作要件: macOS 26.0 以降
 - Swift 6.0 / Xcode 26 系ツールチェーン
 - ログイン項目の登録に最新の ServiceManagement API (`SMAppService`) を使用
-- Bundle ID: `io.github.glyzinie.cmd-eikana`
+- Bundle ID: `net.cmd-eikana`
 
 ### 差分の確認
 
@@ -46,7 +47,7 @@ fork間で比較する場合は、比較対象を `OWNER:REPO:BRANCH` の形式�
 ## アンインストール方法
 
 cmd-eikana.appをゴミ箱に入れてください。
-また、設定ファイルが`~/Library/Preferences/io.github.glyzinie.cmd-eikana.plist`にあります。
+また、設定ファイルが`~/Library/Preferences/net.cmd-eikana.plist`にあります。
 綺麗さっぱり消したいという場合はこちらもゴミ箱に入れてください。
 
 ## 動作確認環境

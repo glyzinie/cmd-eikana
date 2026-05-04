@@ -14,7 +14,7 @@ import Cocoa
 import ServiceManagement
 
 @MainActor private let loginItemService = SMAppService.loginItem(
-  identifier: "io.github.glyzinie.cmd-eikana-helper")
+  identifier: "net.cmd-eikana-helper")
 
 /// バージョンアップ時に自動起動設定を再登録すべきか判定する
 /// - Parameters:

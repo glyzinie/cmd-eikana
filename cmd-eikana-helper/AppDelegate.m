@@ -21,7 +21,7 @@
     BOOL running = NO;
     BOOL active = NO;
     
-    NSArray *applications = [NSRunningApplication runningApplicationsWithBundleIdentifier: @"io.github.glyzinie.cmd-eikana"];
+    NSArray *applications = [NSRunningApplication runningApplicationsWithBundleIdentifier: @"net.cmd-eikana"];
     if (applications.count > 0) {
         NSRunningApplication *application = [applications firstObject];
         
@@ -31,7 +31,7 @@
     
     if (!running && !active) {
         // Launch main application
-        NSURL *applicationURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://", @"io.github.glyzinie.cmd-eikana"]];
+        NSURL *applicationURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://", @"net.cmd-eikana"]];
         [[NSWorkspace sharedWorkspace] openURL:applicationURL];
     }
     
