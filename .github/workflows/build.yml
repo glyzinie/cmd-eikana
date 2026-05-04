@@ -2,16 +2,6 @@ name: Build
 
 on:
   workflow_dispatch:
-    inputs:
-      configuration:
-        description: 'Build configuration'
-        required: true
-        default: 'auto'
-        type: choice
-        options:
-          - auto
-          - debug
-          - release
   push:
     paths-ignore:
       - 'docs/**'
@@ -29,23 +19,42 @@ jobs:
     runs-on: macos-26
     timeout-minutes: 20
     env:
-      BUILD_CONFIGURATION: ${{ github.event.inputs.configuration == 'release' && 'Release' || github.event.inputs.configuration == 'debug' && 'Debug' || github.ref == 'refs/heads/main' && 'Release' || 'Debug' }}
+      BUILD_CONFIGURATION: ${{ (github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main') && 'Release' || 'Debug' }}
+      PROJECT_PATH: cmd-eikana.xcodeproj
+      SCHEME: cmd-eikana
       DERIVED_DATA_PATH: build/DerivedData
       ARTIFACT_DIR: build/artifacts
     steps:
       - uses: actions/checkout@v6
-      - name: Print toolchain
-        run: |
-          xcode-select -p
-          swift --version
+        with:
+          persist-credentials: false
+          set-safe-directory: false
+          show-progress: false
       - name: Build
-        run: xcodebuild -quiet -project "cmd-eikana.xcodeproj" -scheme "cmd-eikana" -configuration "$BUILD_CONFIGURATION" -derivedDataPath "$DERIVED_DATA_PATH" -destination 'platform=macOS,arch=arm64' build CODE_SIGN_IDENTITY="-" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
-      - name: Sign app for testing
-        run: codesign --force --deep --sign - "$DERIVED_DATA_PATH/Build/Products/$BUILD_CONFIGURATION/cmd-eikana.app"
+        run: |
+          xcodebuild -quiet \
+            -project "$PROJECT_PATH" \
+            -scheme "$SCHEME" \
+            -configuration "$BUILD_CONFIGURATION" \
+            -derivedDataPath "$DERIVED_DATA_PATH" \
+            -destination 'platform=macOS,arch=arm64' \
+            build \
+            CODE_SIGN_IDENTITY="-" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            DEBUG_INFORMATION_FORMAT=dwarf
       - name: Package app
         run: |
+          app_path="$DERIVED_DATA_PATH/Build/Products/$BUILD_CONFIGURATION/cmd-eikana.app"
+          helper_path="$app_path/Contents/Library/LoginItems/cmd-eikana-helper.app"
+          artifact_path="$ARTIFACT_DIR/cmd-eikana-$BUILD_CONFIGURATION.zip"
+
+          codesign --force --sign - "$helper_path"
+          codesign --force --sign - "$app_path"
           mkdir -p "$ARTIFACT_DIR"
-          ditto -c -k --keepParent "$DERIVED_DATA_PATH/Build/Products/$BUILD_CONFIGURATION/cmd-eikana.app" "$ARTIFACT_DIR/cmd-eikana-$BUILD_CONFIGURATION.zip"
+          ditto -c -k --sequesterRsrc --keepParent \
+            "$app_path" \
+            "$artifact_path"
       - name: Upload app
         uses: actions/upload-artifact@v7
         with:
@@ -53,3 +62,4 @@ jobs:
           path: ${{ env.ARTIFACT_DIR }}/cmd-eikana-${{ env.BUILD_CONFIGURATION }}.zip
           archive: false
           if-no-files-found: error
+          retention-days: 14
